@@ -67,13 +67,7 @@ const GoogleReCaptcha = ({ onMessage, siteKey, style, url, languageCode, cancelB
 						data-expired-callback="onDataExpiredCallback"  
 						data-error-callback="onDataErrorCallback">
 					</div>
-					<div>
-						<button 
-							onclick="onCancel()"
-							class="btn" type="button">
-							${cancelButtonText}
-						</button> 
-					</div>
+					
 					</div>
 				</div>
 			</body>
