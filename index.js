@@ -6,6 +6,7 @@ import Modal from 'react-native-modal';
 import GoogleReCaptcha from './GoogleReCaptcha';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
 
@@ -32,7 +33,7 @@ class ConfirmGoogleCaptcha extends Component {
                 animationIn="fadeIn"
                 animationOut='fadeOut'
                 isVisible={show}>
-                <View style={styles.wrapper}>
+                <SafeAreaView style={styles.wrapper}>
                     <GoogleReCaptcha
                         url={baseUrl}
                         siteKey={siteKey}
@@ -43,7 +44,7 @@ class ConfirmGoogleCaptcha extends Component {
                     <TouchableOpacity onPress={this.hide} style={[styles.closeButton, this.props.closeButtonStyle]}>
                         <Text style={[styles.closeText, this.props.closeTextStyle]}>{cancelButtonText}</Text>
                     </TouchableOpacity>
-                </View>
+                </SafeAreaView>
             </Modal>
         );
     }
@@ -52,7 +53,7 @@ class ConfirmGoogleCaptcha extends Component {
 const styles = StyleSheet.create({
     text: { fontSize: 15, fontWeight: 'bold', color: '#fff', textAlign: 'center', marginTop: 10 },
     modal: { margin: 0 },
-    wrapper: { flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.3)', justifyContent: 'center', overflow: 'hidden' },
+    wrapper: { flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.3)', justifyContent: 'center', overflow: 'hidden' , paddingTop: 20},
     closeText: { color: "white" },
     closeButton: { paddingVertical: 10, paddingHorizontal: 20, alignSelf: 'center', marginBottom: 10, backgroundColor: "red", borderRadius: 16 }
 });
